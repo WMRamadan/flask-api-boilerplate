@@ -51,7 +51,7 @@ def shutdown_session(exception=None):
 
 @app.route('/', methods=['GET'])
 def home():
-    return "<p>Hello, World!</p>"
+    return "Hello, World!"
 
 @app.route('/health', methods=['GET'])
 def api_health():
@@ -81,12 +81,12 @@ def get_delete_put_note(note_id):
 @app.errorhandler(500)
 def internal_error(error):
     db.session.rollback()
-    return "Oh No 500 Server Error!", 500
+    return "Oh No, 500 Server Error!", 500
 
 
 @app.errorhandler(404)
 def not_found_error(error):
-    return "Nothing here to see!", 404
+    return "404, Nothing to see here!", 404
 
 if not app.debug:
     file_handler = FileHandler('error.log')
