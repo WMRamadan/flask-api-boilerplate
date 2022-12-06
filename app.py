@@ -3,7 +3,7 @@
 #----------------------------------------------------------------------------#
 
 import logging
-from flask import Flask, request, jsonify
+from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_serialize import FlaskSerializeMixin
 from logging import Formatter, FileHandler
