@@ -30,3 +30,31 @@ Flask REST API pre-configured with Flask-SQLAlchemy, Flask-Serializer & Logging.
     ```
 
 5. View the api at http://localhost:5000
+
+6. Perform CRUD Operations:
+
+    Create Note:
+    ```bash
+    curl -X POST http://localhost:5000/notes -H 'Content-Type: application/json' -d '{"note": "This is a note"}'
+    ```
+
+    Get all Notes:
+    ```bash
+    curl -X GET http://localhost:5000/notes
+    ```
+
+    Get Note by ID:
+    ```bash
+    curl -X GET http://localhost:5000/note/<note_id>
+    ```
+
+    Delete Note by ID:
+    ```bash
+    curl -X DELETE http://localhost:5000/note/<note_id>
+    ```
+
+    Update Note by ID:
+    ```bash
+    curl -X PUT http://localhost:5000/note/<note_id> -d '{"note": "This is an updated note"}'
+    ```
+
