@@ -31,7 +31,7 @@ Flask REST API pre-configured with Flask-SQLAlchemy, Flask-Serializer & Logging.
 
 5. View the api at http://localhost:5000
 
-## Performing CRUD Operations:
+## Performing CRUD Operations
 
 Create Note:
 ```bash
