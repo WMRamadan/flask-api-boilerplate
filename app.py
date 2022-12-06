@@ -4,9 +4,9 @@
 
 import logging
 from flask import Flask, request
-from flask_sqlalchemy import SQLAlchemy
-from flask_serialize import FlaskSerializeMixin
 from logging import Formatter, FileHandler
+from models import db
+from models.Notes import Note
 
 #----------------------------------------------------------------------------#
 # App Config.
@@ -16,27 +16,8 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///api.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.url_map.strict_slashes = False
-db = SQLAlchemy(app)
-FlaskSerializeMixin.db = db
-
-#----------------------------------------------------------------------------#
-# Database Models.
-#----------------------------------------------------------------------------#
-
-class Note(db.Model, FlaskSerializeMixin):
-    __tablename__ = 'notes'
-
-    id = db.Column(db.Integer, primary_key=True)
-    note = db.Column(db.String(120), unique=False)
-
-    # serializer fields
-    create_fields = update_fields = ['note']
-
-    def __init__(self, note=None):
-        self.note = note
-
-    def __repr__(self):
-        return f'<Note {self.note!r}>'
+db.init_app(app)
+db.app = app
 
 with app.app_context():
     db.create_all()
