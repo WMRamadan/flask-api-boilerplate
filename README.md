@@ -10,7 +10,7 @@ Flask REST API pre-configured with Flask-SQLAlchemy, Flask-Serializer & Logging.
 1. Clone the repo
     ```bash
     git clone https://github.com/WMRamadan/flask-api-biolerplate
-    cd flask-api-biolerplate
+    cd flask-api-boilerplate
     ```
 
 2. Initialize and activate a virtual environment:
